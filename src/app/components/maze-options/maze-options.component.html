@@ -1,3 +1,12 @@
-<p>
-  maze-options works!
-</p>
+
+<button mat-raised-button >Get Maze</button>
+
+<mat-form-field>
+  <mat-select placeholder="Select Algorithm" (value)="selected">
+    <mat-option *ngFor="let al of algorithms">
+      {{ al }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button>Solve Maze</button>

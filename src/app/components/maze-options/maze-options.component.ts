@@ -1,3 +1,4 @@
+import { MazeService } from '../../services/maze.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MazeOptionsComponent implements OnInit {
 
-  constructor() { }
+  algorithms: string[];
+  selected: string;
+
+  constructor( private mazeService: MazeService) { }
 
   ngOnInit() {
+    this.getAlgorithms();
   }
 
+  getAlgorithms() {
+    this.mazeService.getAlgorithms().subscribe( algorithms => this.algorithms = algorithms);
+  }
 }

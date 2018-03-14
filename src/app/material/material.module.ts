@@ -4,7 +4,9 @@ import {CommonModule} from '@angular/common';
 import {
   MatToolbarModule,
   MatSidenavModule,
-  MatButtonModule
+  MatButtonModule,
+  MatFormFieldModule,
+  MatSelectModule,
 } from '@angular/material';
 
 @NgModule({
@@ -14,7 +16,9 @@ import {
   exports: [
     MatToolbarModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   declarations: []
 })
