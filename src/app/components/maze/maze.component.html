@@ -1,12 +1,23 @@
+<mat-sidenav-container>
+	<mat-sidenav mode="side" opened>
 
+		<!-- <app-maze-options></app-maze-options> -->
+		<button mat-raised-button  (click) = "getMaze()">Get Maze</button>
 
-	<mat-sidenav-container> <mat-sidenav mode="side" opened>
+		<mat-form-field>
+			<mat-select placeholder="Select Algorithm" (value)="selected">
+				<mat-option *ngFor="let al of algorithms" [value]="al">
+					{{ al }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
 
-		<app-maze-options></app-maze-options>
-	
-	</mat-sidenav> <mat-sidenav-content>
+		<button mat-raised-button>Solve Maze</button>
 
-		<app-maze-display></app-maze-display>
-	
-	</mat-sidenav-content> </mat-sidenav-container>
+	</mat-sidenav>
+	<mat-sidenav-content>
 
+		<!-- <app-maze-display></app-maze-display> -->
+
+	</mat-sidenav-content>
+</mat-sidenav-container>

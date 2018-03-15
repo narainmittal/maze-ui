@@ -1,3 +1,7 @@
 mat-sidenav {
   width: 200px;
 }
+
+mat-sidenav-container{
+  min-height: 500px;
+}

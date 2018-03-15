@@ -1,4 +1,4 @@
 export class Block {
-  private x: number;
-  private y: string;
+  x: number;
+  y: string;
 }
