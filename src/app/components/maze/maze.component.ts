@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MazeService } from '../../services/maze.service';
 import { Maze } from '../../classes/maze';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-maze',
@@ -12,6 +13,7 @@ export class MazeComponent implements OnInit {
   algorithms: string[];
   selected: string;
   maze: Maze;
+  maze$: Observable<Maze>;
   mazeId: number;
 
   constructor( private mazeService: MazeService) { }
@@ -26,8 +28,9 @@ export class MazeComponent implements OnInit {
   }
 
   getMaze() {
-    this.mazeService.getMaze()
-      .subscribe( maze => this.maze = maze);
+    // this.mazeService.getMaze()
+    //  .subscribe( maze => this.maze = maze);
+    this.maze$ = this.mazeService.getMaze();
   }
 
 }

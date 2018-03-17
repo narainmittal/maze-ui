@@ -1,23 +1,39 @@
 <mat-sidenav-container>
+	<h2>Maze Options</h2>
 	<mat-sidenav mode="side" opened>
-
-		<!-- <app-maze-options></app-maze-options> -->
-		<button mat-raised-button  (click) = "getMaze()">Get Maze</button>
-
-		<mat-form-field>
-			<mat-select placeholder="Select Algorithm" (value)="selected">
-				<mat-option *ngFor="let al of algorithms" [value]="al">
-					{{ al }}
-				</mat-option>
-			</mat-select>
-		</mat-form-field>
-
-		<button mat-raised-button>Solve Maze</button>
-
+		<div fxLayout="column" fxLayoutAlign="space-around center">
+			<!-- <app-maze-options></app-maze-options> -->
+			<div fxFlex>
+				<button mat-raised-button (click)="getMaze()">Get Maze</button>
+			</div>
+			<div fxFlex>
+				<mat-form-field>
+					<mat-select placeholder="Select Algorithm" (value)="selected">
+						<mat-option *ngFor="let al of algorithms" [value]="al">
+							{{ al }}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div fxFlex>
+				<button mat-raised-button>Solve Maze</button>
+			</div>
+		</div>
 	</mat-sidenav>
 	<mat-sidenav-content>
-
-		<!-- <app-maze-display></app-maze-display> -->
-
+		<div class="maze-table">
+			<!-- <app-maze-display></app-maze-display> -->
+			<div fxLayout="column" fxLayoutAlign="space-around center">
+				<div *ngFor="let row of (maze$ | async)?.blocks" fxFlex>
+					<div fxLayout="row" fxLayoutAlign="space-around center">
+						<div *ngFor="let col of row" fxFlex>
+							<div class="block" [ngClass]="{'aisle': col.color === 'WHITE'}">
+								<!-- <small>{{col.x}},{{col.y}}</small> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</mat-sidenav-content>
 </mat-sidenav-container>

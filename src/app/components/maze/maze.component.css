@@ -1,7 +1,25 @@
+
 mat-sidenav {
   width: 200px;
 }
 
 mat-sidenav-container{
   min-height: 500px;
+}
+
+.maze-table{
+  margin: 10px;
+}
+
+.block{
+  min-width: 25px;
+  min-height: 25px;
+  background-color: lightskyblue;
+  border: 1px solid royalblue;
+  padding: 2px;
+  text-align: center
+}
+
+.block.aisle{
+  background-color: lightgoldenrodyellow;
 }
