@@ -3,8 +3,16 @@ mat-sidenav {
   width: 200px;
 }
 
-mat-sidenav-container{
-  min-height: 500px;
+mat-sidenav-container {
+  position: fixed;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+}
+
+.maze-nav{
+  margin-top: 20px;
 }
 
 .maze-table{
