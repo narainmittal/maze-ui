@@ -12,8 +12,8 @@ mat-sidenav-container{
 }
 
 .block{
-  min-width: 25px;
-  min-height: 25px;
+  min-width: 30px;
+  min-height: 30px;
   background-color: lightskyblue;
   border: 1px solid royalblue;
   padding: 2px;

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Maze } from '../classes/maze';
+import { Block } from '../classes/block';
 
 
 @Injectable()
@@ -28,6 +29,15 @@ export class MazeService {
       .pipe(
         tap(_ => this.log(`fetched maze with id: ${mazeId}`)),
         catchError(this.handleError('getMaze', new Maze))
+      );
+  }
+
+  solveMaze(algorithm: string, mazeId?: number): Observable<Block[]> {
+    mazeId = mazeId || 0;
+    return this.http.get(this.BASE_URL + `/maze-solution/${mazeId}/solve`, { params: { 'algorithm': algorithm } })
+      .pipe(
+        tap(_ => this.log(`trying to solve maze : ${mazeId} with algorithm: ${algorithm}`)),
+        catchError(this.handleError('solveMaze', Block[0]))
       );
   }
 

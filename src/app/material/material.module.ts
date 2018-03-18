@@ -7,6 +7,7 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatSelectModule,
+  MatIconModule
 } from '@angular/material';
 
 @NgModule({
@@ -18,7 +19,8 @@ import {
     MatSidenavModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ],
   declarations: []
 })
