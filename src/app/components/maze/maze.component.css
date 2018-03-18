@@ -23,3 +23,7 @@ mat-sidenav-container{
 .block.aisle{
   background-color: lightgoldenrodyellow;
 }
+
+.block.aisle.solution{
+  background-color: lightseagreen;
+}

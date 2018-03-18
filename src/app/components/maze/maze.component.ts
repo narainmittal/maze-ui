@@ -13,8 +13,8 @@ export class MazeComponent implements OnInit {
 
   algorithms: string[];
   selected: string;
-  // maze: Maze;
-  maze$: Observable<Maze>;
+  maze: Maze;
+  // maze$: Observable<Maze>;
   mazeId: number;
   solution: Block[];
 
@@ -30,9 +30,9 @@ export class MazeComponent implements OnInit {
   }
 
   getMaze() {
-    // this.mazeService.getMaze()
-    //  .subscribe( maze => this.maze = maze);
-    this.maze$ = this.mazeService.getMaze();
+     this.mazeService.getMaze()
+      .subscribe( maze => this.maze = maze);
+    // this.maze$ = this.mazeService.getMaze();
   }
 
   solveMaze() {
