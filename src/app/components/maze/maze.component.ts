@@ -3,6 +3,8 @@ import { MazeService } from '../../services/maze.service';
 import { Maze } from '../../classes/maze';
 import { Observable } from 'rxjs/Observable';
 import { Block } from '../../classes/block';
+import { MatDialog } from '@angular/material';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-maze',
@@ -16,7 +18,7 @@ export class MazeComponent implements OnInit {
   mazeId: number;
   solution: Block[];
 
-  constructor(private mazeService: MazeService) { }
+  constructor(private mazeService: MazeService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getAlgorithms();
@@ -28,17 +30,26 @@ export class MazeComponent implements OnInit {
   }
 
   getMaze() {
-     this.mazeService.getMaze()
-      .subscribe( maze => this.maze = maze);
+    const dialogRef = this.dialog.open(SpinnerComponent);
+    this.mazeService.getMaze()
+      .subscribe(maze => {
+        this.maze = maze;
+        dialogRef.close();
+      });
+
+    return false;
   }
 
   solveMaze(selectedAlgorithm: string) {
+    const dialogRef = this.dialog.open(SpinnerComponent);
     this.mazeService.solveMaze(selectedAlgorithm)
       .subscribe(data => {
         this.solution = data;
+        dialogRef.close();
       });
+    return false;
   }
-  inSolution(block: Block): boolean  {
-    return !! (this.solution && this.solution.filter(b => block.x === b.x && block.y === b.y).length > 0);
+  inSolution(block: Block): boolean {
+    return !!(this.solution && this.solution.filter(b => block.x === b.x && block.y === b.y).length > 0);
   }
 }

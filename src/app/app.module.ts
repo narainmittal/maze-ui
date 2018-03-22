@@ -14,6 +14,8 @@ import { MazeDisplayComponent } from './components/maze-display/maze-display.com
 import { MazeComponent } from './components/maze/maze.component';
 import { MazeService } from './services/maze.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 const appRoutes: Routes = [
   { path: '', component: MazeComponent },
@@ -27,7 +29,11 @@ const appRoutes: Routes = [
     MazeOptionsComponent,
     MazeDisplayComponent,
     MazeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SpinnerComponent
+  ],
+  entryComponents: [
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,9 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [MazeService],
+  providers: [MazeService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
