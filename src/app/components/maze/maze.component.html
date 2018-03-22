@@ -10,7 +10,7 @@
 
 			<div fxFlex>
 				<mat-form-field>
-					<mat-select placeholder="Select Algorithm" [(value)]="selected">
+					<mat-select placeholder="Select Algorithm" #alSelect>
 						<mat-option *ngFor="let al of algorithms" [value]="al">
 							{{ al }}
 						</mat-option>
@@ -19,7 +19,7 @@
 			</div>
 
 			<div fxFlex>
-				<button mat-raised-button (click)="solveMaze()" color="accent" [disabled]="!selected">Solve Maze</button>
+				<button mat-raised-button (click)="solveMaze(alSelect.value)" color="accent" [disabled]="!alSelect.value">Solve Maze</button>
 			</div>
 		</div>
 		<!-- </form> -->

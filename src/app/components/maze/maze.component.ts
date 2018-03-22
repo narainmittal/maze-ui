@@ -12,9 +12,7 @@ import { Block } from '../../classes/block';
 export class MazeComponent implements OnInit {
 
   algorithms: string[];
-  selected: string;
   maze: Maze;
-  // maze$: Observable<Maze>;
   mazeId: number;
   solution: Block[];
 
@@ -32,11 +30,10 @@ export class MazeComponent implements OnInit {
   getMaze() {
      this.mazeService.getMaze()
       .subscribe( maze => this.maze = maze);
-    // this.maze$ = this.mazeService.getMaze();
   }
 
-  solveMaze() {
-    this.mazeService.solveMaze(this.selected)
+  solveMaze(selectedAlgorithm: string) {
+    this.mazeService.solveMaze(selectedAlgorithm)
       .subscribe(data => {
         this.solution = data;
       });
