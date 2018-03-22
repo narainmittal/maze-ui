@@ -1,0 +1,16 @@
+.block{
+    min-width: 30px;
+    min-height: 30px;
+    background-color: lightskyblue;
+    border: 1px solid royalblue;
+    padding: 2px;
+    text-align: center
+  }
+  
+  .block.aisle{
+    background-color: lightgoldenrodyellow;
+  }
+  
+  .block.aisle.solution{
+    background-color: lightseagreen;
+  }

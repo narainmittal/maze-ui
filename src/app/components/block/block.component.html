@@ -1,0 +1,4 @@
+<div class="block" [ngClass]="{'aisle': block.color === 'WHITE', 'solution': inSolution(block)}">
+  <mat-icon *ngIf="start" color="primary">flag</mat-icon>
+  <mat-icon *ngIf="end" color="primary">home</mat-icon>
+</div>

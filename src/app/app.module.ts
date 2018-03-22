@@ -16,6 +16,7 @@ import { MazeService } from './services/maze.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { BlockComponent } from './components/block/block.component';
 
 const appRoutes: Routes = [
   { path: '', component: MazeComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     MazeDisplayComponent,
     MazeComponent,
     PageNotFoundComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    BlockComponent
   ],
   entryComponents: [
     SpinnerComponent

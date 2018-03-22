@@ -13,7 +13,6 @@ import { SpinnerComponent } from '../spinner/spinner.component';
 })
 export class MazeComponent implements OnInit {
 
-  algorithms: string[];
   maze: Maze;
   mazeId: number;
   solution: Block[];
@@ -21,12 +20,7 @@ export class MazeComponent implements OnInit {
   constructor(private mazeService: MazeService, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.getAlgorithms();
-  }
 
-  getAlgorithms() {
-    this.mazeService.getAlgorithms()
-      .subscribe(algorithms => this.algorithms = algorithms);
   }
 
   getMaze() {
@@ -48,8 +42,5 @@ export class MazeComponent implements OnInit {
         dialogRef.close();
       });
     return false;
-  }
-  inSolution(block: Block): boolean {
-    return !!(this.solution && this.solution.filter(b => block.x === b.x && block.y === b.y).length > 0);
   }
 }

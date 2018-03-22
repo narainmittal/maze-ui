@@ -1,3 +1,12 @@
-<p>
-  maze-display works!
-</p>
+<div class="maze-table">
+  <div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="maze">
+    <!-- <div *ngFor="let row of (maze$ | async)?.blocks" fxFlex> -->
+    <div *ngFor="let row of maze.blocks" fxFlex>
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div *ngFor="let col of row" fxFlex>
+          <app-block [block]="col" [solution]="solution" [start]="col.x===maze.end.x && col.y===maze.end.y" [end]="col.x===maze.start.x && col.y===maze.start.y"></app-block>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
