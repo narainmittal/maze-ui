@@ -11,7 +11,7 @@ import { Block } from '../classes/block';
 @Injectable()
 export class MazeService {
 
-  private BASE_URL = 'http://localhost:8080/maze-app';
+  readonly BASE_URL = 'http://localhost:8080/maze-app';
 
   constructor(private http: HttpClient) { }
 
@@ -19,12 +19,11 @@ export class MazeService {
     return this.http.get<string[]>(this.BASE_URL + '/maze-solution/algorithms')
       .pipe(
         tap(algorithms => this.log(`fetched algorithms`)),
-        catchError(this.handleError('getHeroes', []))
+        catchError(this.handleError('getAlgorithms', []))
       );
   }
 
-  getMaze(mazeId?: number): Observable<Maze> {
-    mazeId = mazeId || 0;
+  getMaze(mazeId: number = 0): Observable<Maze> {
     return this.http.get<Maze>(this.BASE_URL + `/maze/${mazeId}`)
       .pipe(
         tap(_ => this.log(`fetched maze with id: ${mazeId}`)),
@@ -32,8 +31,7 @@ export class MazeService {
       );
   }
 
-  solveMaze(algorithm: string, mazeId?: number): Observable<Block[]> {
-    mazeId = mazeId || 0;
+  solveMaze(algorithm: string, mazeId: number = 0): Observable<Block[]> {
     return this.http.get(this.BASE_URL + `/maze-solution/${mazeId}/solve`, { params: { 'algorithm': algorithm } })
       .pipe(
         tap(_ => this.log(`trying to solve maze : ${mazeId} with algorithm: ${algorithm}`)),
@@ -41,8 +39,7 @@ export class MazeService {
       );
   }
 
-
-  private handleError<T>(operation = 'operation', result?: T) {
+  handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
@@ -56,7 +53,7 @@ export class MazeService {
     };
   }
 
-  private log(message: string) {
+  log(message: string) {
     console.log('MazeService: ' + message);
   }
 
