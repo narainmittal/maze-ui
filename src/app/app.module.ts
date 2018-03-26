@@ -48,9 +48,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [MazeService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
-  ],
+  providers: [MazeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
