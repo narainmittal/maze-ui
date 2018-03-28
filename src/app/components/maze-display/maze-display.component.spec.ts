@@ -5,7 +5,6 @@ import { MaterialModule } from '../../material/material.module';
 import { BlockComponent } from '../block/block.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-
 describe('MazeDisplayComponent', () => {
   let component: MazeDisplayComponent;
   let fixture: ComponentFixture<MazeDisplayComponent>;
