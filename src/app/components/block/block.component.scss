@@ -8,7 +8,7 @@ $maze-accent: mat-palette($mat-pink);
     border: 1px solid mat-color($maze-primary);
     padding: 2px;
     text-align: center;
-    height: 100%;
+    height: calc(100% - 4px);
     
     &.aisle{
       background-color: mat-color($maze-primary, 50);
