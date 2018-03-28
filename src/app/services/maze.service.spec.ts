@@ -8,12 +8,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 let httpMock;
 let service: MazeService;
 
-fdescribe('MazeService', () => {
+describe('MazeService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [MazeService
-      ]
+      providers: [MazeService]
     });
 
     httpMock = TestBed.get(HttpTestingController);

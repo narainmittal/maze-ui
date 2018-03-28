@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BlockComponent } from './block.component';
+import { MaterialModule } from '../../material/material.module';
+import { Block } from '../../classes/block';
 
 describe('BlockComponent', () => {
   let component: BlockComponent;
@@ -8,14 +10,16 @@ describe('BlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlockComponent ]
+      imports: [MaterialModule],
+      declarations: [BlockComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BlockComponent);
     component = fixture.componentInstance;
+    component.block = new Block;
     fixture.detectChanges();
   });
 
