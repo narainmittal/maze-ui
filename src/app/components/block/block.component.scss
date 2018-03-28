@@ -4,13 +4,10 @@ $maze-primary: mat-palette($mat-indigo);
 $maze-accent: mat-palette($mat-pink);
 
 .block{
-    max-width: 30px;
-    max-height: 30px;
     background-color: mat-color($maze-primary, 200);
     border: 1px solid mat-color($maze-primary);
     padding: 2px;
     text-align: center;
-    font-size: 0.8em;
     height: 100%;
     
     &.aisle{
