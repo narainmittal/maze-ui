@@ -4,7 +4,7 @@ import { Block } from '../../classes/block';
 @Component({
   selector: 'app-block',
   templateUrl: './block.component.html',
-  styleUrls: ['./block.component.css']
+  styleUrls: ['./block.component.scss']
 })
 export class BlockComponent implements OnInit {
   @Input() block: Block;
