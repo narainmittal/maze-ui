@@ -1,6 +1,6 @@
 <div *ngIf="maze" fxLayout="column" fxLayoutAlign="center stretch" class="maze-table">
-  <div *ngFor="let row of maze.blocks" fxFlex="30px" fxLayout="row" fxLayoutAlign="center stretch">
-    <app-block *ngFor="let col of row" fxFlex="30px" [block]="col" [solution]="solution" [start]="col.x===maze.end.x && col.y===maze.end.y"
+  <div *ngFor="let row of maze.blocks" fxFlex="25px" fxLayout="row" fxLayoutAlign="center stretch">
+    <app-block *ngFor="let col of row" fxFlex="25px" [block]="col" [solution]="solution" [start]="col.x===maze.end.x && col.y===maze.end.y"
       [end]="col.x===maze.start.x && col.y===maze.start.y">
     </app-block>
   </div>

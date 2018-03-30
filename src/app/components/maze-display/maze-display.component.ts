@@ -5,7 +5,7 @@ import { Block } from '../../classes/block';
 @Component({
   selector: 'app-maze-display',
   templateUrl: './maze-display.component.html',
-  styleUrls: ['./maze-display.component.css']
+  styleUrls: ['./maze-display.component.scss']
 })
 export class MazeDisplayComponent implements OnInit {
 
