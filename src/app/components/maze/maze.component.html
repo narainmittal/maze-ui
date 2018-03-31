@@ -1,6 +1,6 @@
-<mat-sidenav-container>
+<mat-sidenav-container autosize>
 	<mat-sidenav mode="side" opened>
-			<app-maze-options (getMaze)= "getMaze()" (solveMaze)="solveMaze($event)"></app-maze-options>		
+			<app-maze-options (createMaze)= "createMaze($event)" (solveMaze)="solveMaze($event)" [mazeCreated]="!!maze"></app-maze-options>		
 	</mat-sidenav>
 	<mat-sidenav-content>
 		<app-maze-display [maze]="maze" [solution]="solution"></app-maze-display>

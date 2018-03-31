@@ -11,7 +11,9 @@ import {
   MatDividerModule,
   MatDialogModule,
   MatProgressSpinnerModule,
-  MatCardModule
+  MatCardModule,
+  MatExpansionModule,
+  MatInputModule
 } from '@angular/material';
 
 @NgModule({
@@ -28,7 +30,9 @@ import {
     MatDividerModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+    MatInputModule
   ],
   declarations: []
 })

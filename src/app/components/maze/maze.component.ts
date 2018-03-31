@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Block } from '../../classes/block';
 import { MatDialog } from '@angular/material';
 import { SpinnerComponent } from '../spinner/spinner.component';
+import { Grid } from '../../classes/grid';
 
 @Component({
   selector: 'app-maze',
@@ -23,6 +24,17 @@ export class MazeComponent implements OnInit {
 
   }
 
+  createMaze(gridValues: Grid) {
+    const dialogRef = this.dialog.open(SpinnerComponent);
+    this.mazeService.createMaze(gridValues)
+      .subscribe(maze => {
+        this.maze = maze;
+        this.solution = null;
+        dialogRef.close();
+      });
+
+    return false;
+  }
   getMaze() {
     const dialogRef = this.dialog.open(SpinnerComponent);
     this.mazeService.getMaze()

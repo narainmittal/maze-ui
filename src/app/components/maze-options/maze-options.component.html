@@ -1,4 +1,45 @@
-<div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="20px" class="maze-nav">
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Create Maze
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="Rows" #rows>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Column" #cols>
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-raised-button (click)="onCreateMaze(rows.value, cols.value)" color="accent" [disabled]="!rows.value || !cols.value">Get Maze</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel [disabled]="!mazeCreated">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Solve Maze
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <mat-select placeholder="Select Algorithm" #alSelect>
+        <mat-option *ngFor="let al of algorithms" [value]="al">
+          {{ al }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-action-row>
+      <button mat-raised-button (click)="onSolveMaze(alSelect.value)" color="accent" [disabled]="!alSelect.value">Solve Maze</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="20px" class="maze-nav">
   <div fxFlex>
     <button mat-raised-button (click)="onGetMaze()" color="accent">Get Maze</button>
   </div>
@@ -16,4 +57,4 @@
   <div fxFlex>
     <button mat-raised-button (click)="onSolveMaze(alSelect.value)" color="accent" [disabled]="!alSelect.value">Solve Maze</button>
   </div>
-</div>
+</div> -->

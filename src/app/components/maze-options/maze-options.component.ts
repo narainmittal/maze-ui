@@ -1,5 +1,6 @@
 import { MazeService } from '../../services/maze.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Grid } from '../../classes/grid';
 
 @Component({
   selector: 'app-maze-options',
@@ -7,13 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./maze-options.component.css']
 })
 export class MazeOptionsComponent implements OnInit {
-  @Output() getMaze: EventEmitter<any>;
+  @Input() mazeCreated: boolean;
+  @Output() createMaze: EventEmitter<Grid>;
   @Output() solveMaze: EventEmitter<string>;
 
   algorithms: string[];
 
-  constructor( private mazeService: MazeService) {
-    this.getMaze = new EventEmitter();
+  constructor(private mazeService: MazeService) {
+    this.createMaze = new EventEmitter();
     this.solveMaze = new EventEmitter();
   }
 
@@ -26,8 +28,8 @@ export class MazeOptionsComponent implements OnInit {
       .subscribe(algorithms => this.algorithms = algorithms);
   }
 
-  onGetMaze () {
-    this.getMaze.emit();
+  onCreateMaze(rows: number, cols: number) {
+    this.createMaze.emit(new Grid(rows, cols));
   }
 
   onSolveMaze(algorithm: string) {

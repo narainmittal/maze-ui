@@ -6,7 +6,13 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Maze } from '../classes/maze';
 import { Block } from '../classes/block';
+import { Grid } from '../classes/grid';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable()
 export class MazeService {
@@ -28,6 +34,14 @@ export class MazeService {
       .pipe(
         tap(_ => this.log(`fetched maze with id: ${mazeId}`)),
         catchError(this.handleError('getMaze', new Maze))
+      );
+  }
+
+  createMaze(grid: Grid): Observable<Maze> {
+    return this.http.post<Maze>(this.BASE_URL + `/maze/`, grid, httpOptions)
+      .pipe(
+        tap( response => this.log(`created maze with grid: ${grid.rows}*${grid.cols} `)),
+        catchError(this.handleError('createMaze', new Maze))
       );
   }
 
