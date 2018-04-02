@@ -6,7 +6,8 @@ $maze-accent: mat-palette($mat-pink);
 .block{
     background-color: mat-color($maze-primary);
     padding: 2px;
-    height: calc(100% - 4px);
+    height: 16px;
+    width: 16px;
     
     &.aisle{
       background-color: mat-color($maze-primary, 50);
