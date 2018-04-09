@@ -1,6 +1,8 @@
 import { MazeService } from '../../services/maze.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Grid } from '../../classes/grid';
+import { MatSnackBar } from '@angular/material';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-maze-options',
@@ -14,7 +16,7 @@ export class MazeOptionsComponent implements OnInit {
 
   algorithms: string[];
 
-  constructor(private mazeService: MazeService) {
+  constructor(private mazeService: MazeService, private messageService: MessageService, private snackBar: MatSnackBar) {
     this.createMaze = new EventEmitter();
     this.solveMaze = new EventEmitter();
   }
@@ -25,7 +27,9 @@ export class MazeOptionsComponent implements OnInit {
 
   getAlgorithms() {
     this.mazeService.getAlgorithms()
-      .subscribe(algorithms => this.algorithms = algorithms);
+      .subscribe(
+        algorithms => this.algorithms = algorithms,
+        error => this.openSnackBar(this.messageService.parseError(error)));
   }
 
   onCreateMaze(rows: number, cols: number) {
@@ -34,5 +38,9 @@ export class MazeOptionsComponent implements OnInit {
 
   onSolveMaze(algorithm: string) {
     this.solveMaze.emit(algorithm);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'close');
   }
 }

@@ -13,7 +13,8 @@ import {
   MatProgressSpinnerModule,
   MatCardModule,
   MatExpansionModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -32,7 +33,8 @@ import {
     MatProgressSpinnerModule,
     MatCardModule,
     MatExpansionModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   declarations: []
 })
