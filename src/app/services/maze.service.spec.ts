@@ -93,7 +93,7 @@ describe('MazeService', () => {
     service.getAlgorithms().subscribe(
       data => fail('should have failed with the 404 error'),
       (error: HttpErrorResponse) => {
-        // expect(error.status).toEqual(404, 'status');
+        // expect(error.status).toEqual(404);
         expect(service.handleError).toHaveBeenCalledWith('getAlgorithms', []);
       }
     );
@@ -101,24 +101,6 @@ describe('MazeService', () => {
     const request = httpMock.expectOne(`${service.BASE_URL}/maze-solution/algorithms`);
 
     // Respond with mock error
-    request.flush(emsg, { status: 404, statusText: 'Not Found' });
-  });
-
-  it('handle error should prevent error propagation', () => {
-    const emsg = 'deliberate 404 error';
-
-    spyOn(service, 'log');
-
-    service.getAlgorithms().subscribe(
-      data => {
-        expect(data.length).toBe(0);
-        expect(service.log).toHaveBeenCalled();
-      },
-      _ => fail('should not have propagated the error')
-    );
-
-    const request = httpMock.expectOne(`${service.BASE_URL}/maze-solution/algorithms`);
-
     request.flush(emsg, { status: 404, statusText: 'Not Found' });
   });
 

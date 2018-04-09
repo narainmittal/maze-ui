@@ -6,21 +6,26 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MazeService } from '../../services/maze.service';
 import { MatDialog } from '@angular/material';
+import { MessageService } from '../../services/message.service';
 
 describe('MazeComponent', () => {
   let component: MazeComponent;
   let fixture: ComponentFixture<MazeComponent>;
   const mockMazeService: any = jasmine.createSpyObj('MazeService', ['solveMaze', 'getMaze']);
-  const mockMatDialog: any = jasmine.createSpyObj('MatDialog', [{'open': { 'close': jasmine.createSpy('close')  }}]);
+  const mockMatDialog: any = jasmine.createSpyObj('MatDialog', [{ 'open': { 'close': jasmine.createSpy('close') } }]);
+  const mockMessageService: any = jasmine.createSpyObj('MessageService', ['parseError']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MaterialModule, NoopAnimationsModule],
-      declarations: [ MazeComponent],
-      providers: [{provide: MazeService, useValue: mockMazeService}, {provide: MatDialog, useValue: mockMatDialog}],
+      declarations: [MazeComponent],
+      providers: [
+        { provide: MazeService, useValue: mockMazeService },
+        { provide: MessageService, useValue: mockMessageService },
+        { provide: MatDialog, useValue: mockMatDialog }],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
