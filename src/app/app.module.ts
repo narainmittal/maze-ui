@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { BlockComponent } from './components/block/block.component';
+import { MessageService } from './services/message.service';
 
 const appRoutes: Routes = [
   { path: '', component: MazeComponent },
@@ -48,7 +49,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [MazeService],
+  providers: [MazeService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

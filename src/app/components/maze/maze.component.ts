@@ -3,9 +3,10 @@ import { MazeService } from '../../services/maze.service';
 import { Maze } from '../../classes/maze';
 import { Observable } from 'rxjs/Observable';
 import { Block } from '../../classes/block';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { Grid } from '../../classes/grid';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-maze',
@@ -18,7 +19,11 @@ export class MazeComponent implements OnInit {
   mazeId: number;
   solution: Block[];
 
-  constructor(private mazeService: MazeService, private dialog: MatDialog) { }
+  constructor(
+    private mazeService: MazeService,
+    private messageService: MessageService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -27,21 +32,36 @@ export class MazeComponent implements OnInit {
   createMaze(gridValues: Grid) {
     const dialogRef = this.dialog.open(SpinnerComponent);
     this.mazeService.createMaze(gridValues)
-      .subscribe(maze => {
-        this.maze = maze;
-        this.solution = null;
-        dialogRef.close();
-      });
+      .subscribe(
+        maze => {
+          this.maze = maze;
+        },
+        error => {
+          this.openSnackBar(this.messageService.parseError(error));
+          dialogRef.close();
+        },
+        () => {
+          this.solution = null;
+          dialogRef.close();
+        });
 
     return false;
   }
   getMaze() {
     const dialogRef = this.dialog.open(SpinnerComponent);
     this.mazeService.getMaze()
-      .subscribe(maze => {
-        this.maze = maze;
-        dialogRef.close();
-      });
+      .subscribe(
+        maze => {
+          this.maze = maze;
+        },
+        error => {
+          this.openSnackBar(this.messageService.parseError(error));
+          dialogRef.close();
+        },
+        () => {
+          this.solution = null;
+          dialogRef.close();
+        });
 
     return false;
   }
@@ -51,8 +71,18 @@ export class MazeComponent implements OnInit {
     this.mazeService.solveMaze(selectedAlgorithm)
       .subscribe(data => {
         this.solution = data;
-        dialogRef.close();
-      });
+      },
+        error => {
+          this.openSnackBar(this.messageService.parseError(error));
+          dialogRef.close();
+        },
+        () => {
+          dialogRef.close();
+        });
     return false;
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'close');
   }
 }

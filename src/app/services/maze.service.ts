@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Maze } from '../classes/maze';
 import { Block } from '../classes/block';
 import { Grid } from '../classes/grid';
+import 'rxjs/add/observable/throw';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -56,14 +57,11 @@ export class MazeService {
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(`${operation} failed:`);
+      console.error(error);
 
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
+      // Throw the error back
+      return Observable.throw(error);
     };
   }
 
