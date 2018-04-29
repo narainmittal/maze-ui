@@ -17,4 +17,8 @@ export class MazeDisplayComponent implements OnInit {
   ngOnInit() {
   }
 
+  inSolution(block: Block): boolean {
+    return !!(this.solution && this.solution.filter(b => block.x === b.x && block.y === b.y).length > 0);
+  }
+
 }

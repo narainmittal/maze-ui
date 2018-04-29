@@ -2,12 +2,13 @@
 
 $maze-primary: mat-palette($mat-indigo);
 $maze-accent: mat-palette($mat-pink);
+$block-size: 10px;
 
 .block{
     background-color: mat-color($maze-primary);
     padding: 2px;
-    height: 16px;
-    width: 16px;
+    height: $block-size;
+    width: $block-size;
     
     &.aisle{
       background-color: mat-color($maze-primary, 50);
@@ -19,11 +20,8 @@ $maze-accent: mat-palette($mat-pink);
     
     .material-icons {
       color: mat-color($maze-accent, A700);
-      font-size: 14px;
-      height: 14px;
-      width: 14px;
+      font-size: $block-size;
       vertical-align: middle;
-      text-align: center;
     }
   }
 
