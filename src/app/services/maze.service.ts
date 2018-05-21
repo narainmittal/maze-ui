@@ -1,13 +1,12 @@
+
+import {throwError as observableThrowError,  Observable ,  of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Maze } from '../classes/maze';
 import { Block } from '../classes/block';
 import { Grid } from '../classes/grid';
-import 'rxjs/add/observable/throw';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -61,7 +60,7 @@ export class MazeService {
       console.error(error);
 
       // Throw the error back
-      return Observable.throw(error);
+      return observableThrowError(error);
     };
   }
 
