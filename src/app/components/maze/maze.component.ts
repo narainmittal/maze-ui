@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MazeService } from '../../services/maze.service';
 import { Maze } from '../../classes/maze';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Block } from '../../classes/block';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { SpinnerComponent } from '../spinner/spinner.component';
