@@ -15,7 +15,7 @@
     </mat-form-field>
 
     <mat-action-row>
-      <button mat-raised-button (click)="onCreateMaze(rows.value, cols.value)" color="accent" [disabled]="!rows.value || !cols.value">Get Maze</button>
+      <button mat-raised-button (click)="onCreateMaze(rows.value, cols.value)" color="accent" [disabled]="!rows.value || !cols.value">Create</button>
     </mat-action-row>
 
   </mat-expansion-panel>
@@ -33,7 +33,7 @@
       </mat-select>
     </mat-form-field>
     <mat-action-row>
-      <button mat-raised-button (click)="onSolveMaze(alSelect.value)" color="accent" [disabled]="!alSelect.value">Solve Maze</button>
+      <button mat-raised-button (click)="onSolveMaze(alSelect.value)" color="accent" [disabled]="!alSelect.value">Solve</button>
     </mat-action-row>
 
   </mat-expansion-panel>
