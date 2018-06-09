@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Maze } from '../classes/maze';
 import { Block } from '../classes/block';
 import { Grid } from '../classes/grid';
+import { environment } from '../../environments/environment';
 
 
 const httpOptions = {
@@ -17,7 +18,7 @@ const httpOptions = {
 @Injectable()
 export class MazeService {
 
-  readonly BASE_URL = 'http://localhost:8080/maze-app';
+  readonly BASE_URL = environment.APP_URL + 'maze-app';
 
   constructor(private http: HttpClient) { }
 
