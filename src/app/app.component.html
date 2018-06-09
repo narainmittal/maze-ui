@@ -1,9 +1,12 @@
 <div class="app-container">
     <mat-toolbar color="primary">
-        <button mat-icon-button routerLink="/">
+        <a mat-icon-button routerLink="/">
             <mat-icon aria-label="Home">home</mat-icon>
-        </button>
-        Angular Maze
+        </a>
+        <span fxFlex fxLayoutAlign="center end"></span>
+        <a mat-icon-button target="_blank" href="https://github.com/mittalnarain123/maze-ui">
+            <mat-icon aria-label="code">code</mat-icon>
+        </a>
     </mat-toolbar>
     <router-outlet></router-outlet>
 </div>
