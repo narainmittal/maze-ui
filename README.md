@@ -1,9 +1,11 @@
 # MazeUi
 
 This project provides UI interface to the Maze project. It is implemented using below frameworks:
-- Angular (5+)
+- Angular (6+)
 - Angular Material (for components, theming etc.)
 - Angular fxFlex (Flexbox support for angular)
+
+The project is currently live at `https://maze.now.sh/`
 
 ## Getting started
 
