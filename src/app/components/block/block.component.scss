@@ -7,8 +7,8 @@ $block-size: 10px;
 .block{
     background-color: mat-color($maze-primary);
     padding: 2px;
-    height: $block-size;
-    width: $block-size;
+    // height: $block-size;
+    // width: $block-size;
     
     &.aisle{
       background-color: mat-color($maze-primary, 50);
@@ -20,7 +20,7 @@ $block-size: 10px;
     
     .material-icons {
       color: mat-color($maze-accent, A700);
-      font-size: $block-size;
+      // font-size: $block-size;
       vertical-align: middle;
     }
   }
