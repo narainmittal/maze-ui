@@ -2,26 +2,43 @@
 
 $maze-primary: mat-palette($mat-indigo);
 $maze-accent: mat-palette($mat-pink);
-$block-size: 10px;
+$block-size: 20px;
 
 .block{
-    background-color: mat-color($maze-primary);
-    padding: 2px;
+
     height: $block-size;
     width: $block-size;
+    padding: 3px;
     
-    &.aisle{
-      background-color: mat-color($maze-primary, 50);
 
-      &.solution{
-        background-color: mat-color($maze-accent, 200);
+    &.border-bottom {
+      border-bottom: 2px solid mat-color($maze-primary);
+      padding-bottom: 1px;
+    }
+
+    &.border-left {
+      border-left: 2px solid mat-color($maze-primary);
+      padding-left: 1px;
+    }
+
+    &.border-right {
+      border-right: 2px solid mat-color($maze-primary);
+      padding-right: 1px;
+    }
+
+    &.border-top {
+      border-top: 2px solid mat-color($maze-primary);
+      padding-top: 1px;
+    }
+
+    .symbol{
+      color: mat-color($maze-accent, A700);
+      text-align: center;
+
+      &.light{
+        color: mat-color($maze-accent, 200);
       }
     }
-    
-    .material-icons {
-      color: mat-color($maze-accent, A700);
-      font-size: $block-size;
-      vertical-align: middle;
-    }
+
   }
 

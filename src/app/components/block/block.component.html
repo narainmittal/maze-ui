@@ -1,4 +1,6 @@
-<div class="block" [ngClass]="{'aisle': block.color === 'WHITE', 'solution': isSolution}">
-  <mat-icon *ngIf="start">flag</mat-icon>
-  <mat-icon *ngIf="end">home</mat-icon>
+<div class="block" [ngClass]="{'border-bottom': block.downWall, 'border-right': block.rightWall, 'border-top': block.x===0, 'border-left': block.y===0, 'solution': isSolution}" fxFlex>
+
+  <div *ngIf="!start && !end && isSolution" class="symbol light" fxFlex>&bull;</div>
+  <div *ngIf="start" class="symbol" fxFlex><strong>S</strong></div>
+  <div *ngIf="end" class="symbol" fxFlex><strong>F</strong></div>
 </div>

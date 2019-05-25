@@ -1,8 +1,8 @@
 <div class="maze-table">
   <div *ngIf="maze" fxLayout="column" fxLayoutAlign="center start">
     <div *ngFor="let row of maze.blocks" fxFlex fxLayout="row" >
-      <app-block *ngFor="let col of row" fxFlex [block]="col" [isSolution]="inSolution(col)" [start]="col.x===maze.end.x && col.y===maze.end.y"
-        [end]="col.x===maze.start.x && col.y===maze.start.y">
+      <app-block *ngFor="let col of row" fxFlex [block]="col" [isSolution]="inSolution(col)" [start]="maze.start && col.x === maze.start.x && col.y===maze.start.y"
+        [end]="maze.end && col.x===maze.end.x && col.y===maze.end.y">
       </app-block>
     </div>
   </div>

@@ -12,9 +12,11 @@ export class BlockComponent implements OnInit {
   @Input() end: boolean;
   @Input() isSolution: boolean;
 
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

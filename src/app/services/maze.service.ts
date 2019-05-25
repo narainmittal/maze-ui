@@ -18,7 +18,7 @@ const httpOptions = {
 @Injectable()
 export class MazeService {
 
-  readonly BASE_URL = environment.APP_URL + 'maze-app';
+  readonly BASE_URL = environment.APP_URL + 'maze';
 
   constructor(private http: HttpClient) { }
 
@@ -39,17 +39,17 @@ export class MazeService {
   }
 
   createMaze(grid: Grid): Observable<Maze> {
-    return this.http.post<Maze>(this.BASE_URL + `/maze/`, grid, httpOptions)
+    return this.http.post<Maze>(this.BASE_URL + `/create`, grid, httpOptions)
       .pipe(
         tap( response => this.log(`created maze with grid: ${grid.rows}*${grid.cols} `)),
         catchError(this.handleError('createMaze', new Maze))
       );
   }
 
-  solveMaze(algorithm: string, mazeId: number = 0): Observable<Block[]> {
-    return this.http.get(this.BASE_URL + `/maze-solution/${mazeId}/solve`, { params: { 'algorithm': algorithm } })
+  solveMaze(maze: Maze): Observable<Block[]> {
+    return this.http.post<Block[]>(this.BASE_URL + `/solve`, maze, httpOptions)
       .pipe(
-        tap(_ => this.log(`trying to solve maze : ${mazeId} with algorithm: ${algorithm}`)),
+        tap(_ => this.log(`trying to solve maze with start: ${maze.start}, end:${maze.end}`)),
         catchError(this.handleError('solveMaze', Block[0]))
       );
   }

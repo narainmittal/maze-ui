@@ -68,7 +68,11 @@ export class MazeComponent implements OnInit {
 
   solveMaze(selectedAlgorithm: string) {
     const dialogRef = this.dialog.open(SpinnerComponent);
-    this.mazeService.solveMaze(selectedAlgorithm)
+    if (!this.maze.start || !this.maze.end) {
+      this.maze.start = this.maze.blocks[0][0];
+      this.maze.end = this.maze.blocks[this.maze.rows - 1][this.maze.cols - 1];
+    }
+    this.mazeService.solveMaze(this.maze)
       .subscribe(data => {
         this.solution = data;
       },
