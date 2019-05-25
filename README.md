@@ -5,11 +5,11 @@ This project provides UI interface to the Maze project. It is implemented using 
 - Angular Material (for components, theming etc.)
 - Angular fxFlex (Flexbox support for angular)
 
-The project is currently live at https://maze.now.sh/
+The project is currently live at https://maze.narainmittal.now.sh/ Thanks to [Zeit](https://zeit.co/)
 
 ## Getting started
 
-This application relies on the REST apis for operations. So refer https://github.com/mittalnarain123/maze-app#running-the-app and make sure the spring-boot app is running
+This application relies on maze api for generating a random maze and the solution and that needs to be up and running for proper functioning of this project. Take a look at [maze-node-app](https://github.com/narainmittal/maze-node-app)
 
 ## Development server
 

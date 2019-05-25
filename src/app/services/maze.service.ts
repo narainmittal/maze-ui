@@ -18,7 +18,7 @@ const httpOptions = {
 @Injectable()
 export class MazeService {
 
-  readonly BASE_URL = environment.APP_URL + 'maze';
+  readonly BASE_URL = environment.APP_URL;
 
   constructor(private http: HttpClient) { }
 

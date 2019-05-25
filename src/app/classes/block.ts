@@ -3,7 +3,7 @@ export class Block {
   y: number;
   dir: number;
   downWall: boolean;
-  leftWall: boolean;
+  rightWall: boolean;
   // deperecate
   color: string;
 
