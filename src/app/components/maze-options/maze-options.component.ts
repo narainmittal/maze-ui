@@ -1,7 +1,7 @@
 import { MazeService } from '../../services/maze.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Grid } from '../../classes/grid';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MessageService } from '../../services/message.service';
 
 @Component({

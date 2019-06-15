@@ -5,7 +5,7 @@ import { MaterialModule } from '../../material/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MazeService } from '../../services/maze.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { MessageService } from '../../services/message.service';
 
 describe('MazeComponent', () => {
