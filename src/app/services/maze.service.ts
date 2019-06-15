@@ -23,19 +23,12 @@ export class MazeService {
   constructor(private http: HttpClient) { }
 
   getAlgorithms(): Observable<string[]> {
-    return this.http.get<string[]>(this.BASE_URL + '/maze-solution/algorithms')
-      .pipe(
-        tap(algorithms => this.log(`fetched algorithms`)),
-        catchError(this.handleError('getAlgorithms', []))
-      );
-  }
-
-  getMaze(mazeId: number = 0): Observable<Maze> {
-    return this.http.get<Maze>(this.BASE_URL + `/maze/${mazeId}`)
-      .pipe(
-        tap(_ => this.log(`fetched maze with id: ${mazeId}`)),
-        catchError(this.handleError('getMaze', new Maze))
-      );
+    // return this.http.get<string[]>(this.BASE_URL + '/maze-solution/algorithms')
+    //   .pipe(
+    //     tap(algorithms => this.log(`fetched algorithms`)),
+    //     catchError(this.handleError('getAlgorithms', []))
+    //   );
+    return of(['Backtracking']);
   }
 
   createMaze(grid: Grid): Observable<Maze> {

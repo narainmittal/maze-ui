@@ -22,8 +22,7 @@ export class MazeOptionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.algorithms = ['Backtracking'];
-    // this.getAlgorithms();
+    this.getAlgorithms();
   }
 
   getAlgorithms() {

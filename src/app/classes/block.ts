@@ -1,10 +1,7 @@
 export class Block {
   x: number;
   y: number;
-  dir: number;
-  downWall: boolean;
-  rightWall: boolean;
-  // deperecate
-  color: string;
-
+  dir?: number;
+  downWall?: boolean;
+  rightWall?: boolean;
 }

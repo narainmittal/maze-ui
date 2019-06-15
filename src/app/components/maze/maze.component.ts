@@ -47,24 +47,6 @@ export class MazeComponent implements OnInit {
 
     return false;
   }
-  getMaze() {
-    const dialogRef = this.dialog.open(SpinnerComponent);
-    this.mazeService.getMaze()
-      .subscribe(
-        maze => {
-          this.maze = maze;
-        },
-        error => {
-          this.openSnackBar(this.messageService.parseError(error));
-          dialogRef.close();
-        },
-        () => {
-          this.solution = null;
-          dialogRef.close();
-        });
-
-    return false;
-  }
 
   solveMaze(selectedAlgorithm: string) {
     const dialogRef = this.dialog.open(SpinnerComponent);
